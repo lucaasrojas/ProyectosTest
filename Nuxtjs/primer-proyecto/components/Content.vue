@@ -1,31 +1,31 @@
 
 <template>
     <div id="Content">
-        <div class="pure-g">
-                    <div class="pure-u-1-3">
-                        <label>Ingresar URL:</label>
+        <div class="pure-g Url">
+                    <div class="pure-u-1-5">
+                        <label >Ingresar URL:</label>
                     </div>
                     <div class="pure-u-1-3">
-                        <input type="text" id="inputUrl" ref="inputUrl" v-model="urlSite">
+                        <input type="text" id="inputUrl" ref="inputUrl" v-model="urlSite" autofocus>
                     </div>
                     <div class="pure-u-1-3">
                         <button v-on:click="getManifest">Get Manifest</button>
                     </div>
                 </div>
         <div class="pure-g">
-            <div class="pure-u-1-2">
+            <div class="pure-u-1-2 formData">
                 
                 <div class="pure-g"> 
-                    <div class="pure-u-1-2">
+                    <div class="pure-u-1-3">
                         <label for="inputEmpresa">Name</label>
                     </div>
                     <div class="pure-u-1-2"> 
                         <input id="inputEmpresa" type="text" ref="inputEmpresa" v-model="nombreEmpresa"
-                            v-on:keydown.tab="actualizoDatos" autofocus>
+                            v-on:keydown.tab="actualizoDatos">
                     </div>
                 </div>
                 <div class="pure-g"> 
-                    <div class="pure-u-1-2">
+                    <div class="pure-u-1-3">
                         <label for="inputEmpresaCorto">Short Name</label>
                     </div>
                     <div class="pure-u-1-2">
@@ -35,7 +35,7 @@
                     
                 </div>
                 <div class="pure-g"> 
-                    <div class="pure-u-1-2">
+                    <div class="pure-u-1-3">
                         <label for="inputLema">Description</label>
                     </div>
                     <div class="pure-u-1-2">
@@ -45,11 +45,11 @@
                     
                 </div>
                 
+                <!-- 
                 
                 <div class="pure-g"> 
                     <button v-on:click="consoleData">Console Log</button>
                 </div>
-                <!-- 
 
                 <div class="pure-g" v-bind="datos">
                     <div class="pure-u-1-1" >
@@ -60,16 +60,52 @@
                 </div>
                 -->
             </div>
-            <div class="pure-u-1-2">
+            <div class="pure-u-1-2 codeBlock">
                 <code>
-                <p id="nombreEmpresa">Name: {{data.name}}</p>
-                <p id="nombreCortoEmpresa">Short Name: {{data.short_name}}</p>
-                <p id="lemaEmpresa">Description: {{data.description}}</p>
+                {
+                    <p id="nombreEmpresa">"name" : "{{data.name}}",</p>
+                    <p id="nombreCortoEmpresa">"short_name" : "{{data.short_name}}",</p>
+                    <p id="lemaEmpresa">"description" : "{{data.description}}"</p>
+                }
                 </code>
             </div>
         </div>
     </div>
 </template>
+<style scoped>
+    #Content{
+        padding: 10px;
+        font-family: Helvetica;
+    }
+    .pure-u-1-2, .pure-u-1-3, .pure-u-1-4, .pure-u-1-5{
+        margin: 0.5em auto;
+    }
+    #inputUrl{
+        width: 100%;
+    }
+    #inputEmpresaCorto{
+        float:left;
+    }
+    .formData{
+        background-color: rgba(186, 185, 185, 0.25);
+        padding: 10px;
+        
+        border-radius: 8px;
+        
+    }
+    .codeBlock{
+        padding: 10px;
+        background-color: #333;
+        color:#a6e22e;
+        border-radius: 8px;
+        
+    }
+    .Url{
+        background-color:#19C65C;
+        border-radius: 8px;
+        padding: 5px;
+    }
+</style>
 
 <script>
 import Coder from "../components/Coder";
