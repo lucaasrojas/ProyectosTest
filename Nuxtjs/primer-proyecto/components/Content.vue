@@ -3,7 +3,7 @@
     <div id="Content">
         <div class="pure-g Url">
                     <div class="pure-u-1-5">
-                        <label >Ingresar URL:</label>
+                        <label >URL:</label>
                     </div>
                     <div class="pure-u-1-3">
                         <input type="text" id="inputUrl" ref="inputUrl" v-model="urlSite" autofocus>
@@ -180,7 +180,8 @@ export default {
                 this.data = result.data.content
                 // Al tener ambos los mismos nombres de campos se actualizan todos juntos.
             });
-        }
+        },
+        
 
     },
     components: { Coder }
